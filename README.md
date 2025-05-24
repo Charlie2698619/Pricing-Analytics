@@ -40,11 +40,19 @@ The dataset is sourced from [Kaggle Retail Transaction Dataset](https://www.kagg
 
 ### 3. **Rule-Based Persona Assignment**
 - Defined personas using spend level, discount sensitivity, elasticity, and category preference:
-  - **Loyal Spenders**
-  - **Discount Hunters**
-  - **Impulse Buyers**
-  - **Functional Deal Seekers**
-  - **Low-Value Drifters**
+
+Each customer was classified into a persona using the following logic:
+
+```DAX
+Persona = 
+SWITCH(TRUE(),
+    [Avg Spend] >= 300 && [Avg Discount%] < 10 && [Avg Elasticity] > -0.2, "Loyal Spenders",
+    [Avg Spend] < 150 && [Avg Discount%] >= 10 && [Avg Elasticity] < -0.4, "Bargain Hunters",
+    [Avg Discount%] >= 5 && [Avg Discount%] < 15 && [Avg Elasticity] < -0.5, "Functional Deal Seekers",
+    [Avg Discount%] >= 10 && [Avg Elasticity] < -0.6 && [Avg Spend] < 100, "Impulse Buyers",
+    "General Shopper"
+)
+
 
 ### 4. **Uplift Modeling**
 - Two-model regression approach:
