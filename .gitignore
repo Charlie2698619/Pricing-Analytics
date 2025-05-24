@@ -1,0 +1,38 @@
+# Jupyter Notebook
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+
+# Data files (avoid large datasets)
+*.csv
+*.xlsx
+*.json
+data/*.csv
+data/*.xlsx
+!data/sample_data.csv
+
+# Power BI
+*.pbix
+*.pbit
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
