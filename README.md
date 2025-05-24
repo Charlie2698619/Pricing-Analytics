@@ -43,7 +43,7 @@ The dataset is sourced from [Kaggle Retail Transaction Dataset](https://www.kagg
 
 Each customer was classified into a persona using the following logic:
 
-```DAX
+DAX
 Persona = 
 SWITCH(TRUE(),
     [Avg Spend] >= 300 && [Avg Discount%] < 10 && [Avg Elasticity] > -0.2, "Loyal Spenders",
